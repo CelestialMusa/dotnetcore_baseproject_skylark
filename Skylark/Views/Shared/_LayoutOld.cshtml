@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Images/apple-icon.png">
+    <link rel="icon" href="~/images/favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - Skylark</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <!-- NProgress -->
+        <link href="~/css/nprogress.css" rel="stylesheet">
+        <!-- jQuery custom content scroller -->
+        <link href="~/css/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+        <link href="~/css/font-awesome.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
+        <link href="~/summernote/summernote.css" rel="stylesheet" />
+        <link href="~/DataTables/datatables.css" rel="stylesheet" />
+        <link href="~/css/jquery-ui.min.css" rel="stylesheet" />
+        <link href="~/css/toastr.min.css" rel="stylesheet" />
+        <link href="~/css/sweetalert2.min.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <!-- NProgress -->
+        <link href="~/css/nprogress.css" rel="stylesheet">
+        <!-- jQuery custom content scroller -->
+        <link href="~/css/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+        <link href="~/css/font-awesome.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
+        <link href="~/summernote/summernote.css" rel="stylesheet" />
+        <link href="~/DataTables/datatables.css" rel="stylesheet" />
+        <link href="~/css/jquery-ui.min.css" rel="stylesheet" />
+        <link href="~/css/toastr.min.css" rel="stylesheet" />
+        <link href="~/css/sweetalert2.min.css" rel="stylesheet" />
+    </environment>
+
+</head>
+<body class="nav-sm footer_fixed">
+    <div class="container body">
+        <div class="main_container ">
+            <div class="col-md-3 left_col menu_fixed">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a asp-controller="Home" asp-action="Index" class="site_title"><i class="fa fa-superpowers"></i> <span>Migrations</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i> Home</a>
+                                </li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (User.IsInRole("Admin"))
+                                    {
+
+                                        <li>
+                                            <a asp-area="" asp-controller="Users" asp-action="Index"><i class="fa fa-user"></i> Users</a>
+                                        </li>
+                                        <li>
+                                            <a asp-area="" asp-controller="Roles" asp-action="Index">
+                                                <i class="fa fa-users"></i> Roles
+                                            </a>
+                                        </li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <partial name="_LoginPartial" />
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    @RenderBody()
+                    @*<div class="page-title">
+                            <div class="title_left">
+                                <h3>Fixed Footer <small> Just add class <strong>footer_fixed</strong></small></h3>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    &copy;
+                    2018
+                    <a href="http://zadsdcmapp1056.corp.dsarena.com">Infrastructure Services</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/jquery-ui.min.js"></script>
+        <script src="~/js/fastclick.js"></script>
+        <script src="~/js/nprogress.js"></script>
+        <script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="~/js/toastr.min.js"></script>
+        <script src="~/js/custom.min.js"></script>
+        <script src="~/summernote/summernote.js"></script>
+        <script src="~/DataTables/datatables.js"></script>
+        <script src="~/js/sweetalert2.all.min.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/jquery-ui.min.js"></script>
+        <script src="~/js/fastclick.js"></script>
+        <script src="~/js/nprogress.js"></script>
+        <script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="~/js/custom.min.js"></script>
+        <script src="~/summernote/summernote.js"></script>
+        <script src="~/DataTables/datatables.js"></script>
+        <script src="~/js/sweetalert2.all.min.js"></script>
+        <script src="~/js/site.min.js"></script>
+        <script src="~/js/toastr.min.js"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+    <partial name="_FlashPartial" />
+</body>
+</html>

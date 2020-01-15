@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <li class="dropdown nav-item">
+        <a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle">
+            <i class="ft-user font-medium-3 blue-grey darken-4"></i> @if (!User.IsInRole("Location"))
+            {@User.Identity.Name}
+        </a>
+        <div ngbdropdownmenu="" aria-labelledby="dropdownBasic3" class="dropdown-menu text-left dropdown-menu-right">
+
+            <form id="logout-form" method="post" asp-controller="UserAccounts" asp-action="SignOut">
+                <a href="javascript:$('#logout-form').submit();" class="dropdown-item"><i class="ft-power mr-2"></i><span>Logout</span></a>
+            </form>
+        </div>
+    </li>
+}
+else
+{
+    <li class="dropdown nav-item">
+        <a class="nav-link position-relative" asp-controller="UserAccounts" asp-action="Login"> <i class="ft-user font-medium-3 blue-grey darken-4"></i> Login</a>
+    </li>
+
+}
