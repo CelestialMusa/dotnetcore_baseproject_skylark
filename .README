@@ -7,3 +7,7 @@ These steps should be executed sequentialy to ensure no screw ups:
 5. Rename the file BasicProjectApexLookAndFeel.csproj.user to YourProjectName.csproj.user
 6. Rebuild the project solution.
 7. Commit your changes and push to your newly defined remote repo.
+
+${{values.component_id}}
+${{values.owner}}
+${{values.description}}
