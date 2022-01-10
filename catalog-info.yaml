@@ -4,6 +4,7 @@ metadata:
   name: skylark-base-project
   description: ${{values.description | dump}}
   annotations:
+    sentry.io/project-slug: dir:.
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
