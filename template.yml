@@ -4,8 +4,12 @@ metadata:
   name: Skylark
   title: DotNet Core 3.1 MVC application
   description: Scaffolder template for the C# MVC application
+  tags:
+    - Dotnet Core
+    - C#
+    - MVC
 spec:
-  owner: absa-group/applications
+  owner: web@example.com
   type: website
 
   parameters:
@@ -29,7 +33,7 @@ spec:
               - Group
     - title: Choose a location
       required:
-        - repoUrl:
+        - repoUrl
       properties:
         repoUrl:
           title: Repository Location
@@ -44,7 +48,7 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./template
+        url: ./
         values:
           component_id: ${{parameters.component_id}}
           owner: ${{parameters.owner}}
