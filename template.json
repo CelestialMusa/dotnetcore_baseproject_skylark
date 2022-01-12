@@ -1,0 +1,104 @@
+{
+    "apiVersion": "scaffolder.backstage.io/v1beta3",
+    "kind": "Template",
+    "metadata": {
+      "name": "Skylark",
+      "title": "DotNet Core 3.1 MVC application",
+      "description": "Scaffolder template for the C# MVC application"
+    },
+    "spec": {
+      "owner": "web@example.com",
+      "type": "website",
+      "parameters": [
+        {
+          "title": "Fill in these steps",
+          "required": [
+            "component_id",
+            "owner"
+          ],
+          "properties": {
+            "component_id": {
+              "title": "Name",
+              "type": "string",
+              "description": "Unique name of the application",
+              "ui:autofocus": true
+            },
+            "owner": {
+              "title": "Owner",
+              "type": "string",
+              "description": "Owner of the component",
+              "ui:field": "OwnerPicker",
+              "ui:options": {
+                "allowedKinds": [
+                  "Group"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "title": "Choose a location",
+          "properties": {
+            "repoUrl": {
+              "title": "Repository Location",
+              "type": "string",
+              "ui:field": "RepoUrlPicker",
+              "ui:options": {
+                "allowedHosts": [
+                  "github.com"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "steps": [
+        {
+          "id": "fetch-base",
+          "name": "Fetch Base",
+          "action": "fetch:template",
+          "input": {
+            "url": "./skeleton",
+            "values": {
+              "component_id": "${{parameters.component_id}}",
+              "owner": "${{parameters.owner}}"
+            }
+          }
+        },
+        {
+          "id": "fetch-docs",
+          "name": "Fetch Docs",
+          "action": "fetch:plain",
+          "input": {
+            "targetPath": "./community",
+            "url": "https://github.com/backstage/community/tree/main/backstage-community-sessions"
+          }
+        },
+        {
+          "id": "publish",
+          "name": "Publish",
+          "action": "publish:github",
+          "input": {
+            "allowedHosts": [
+              "github.com"
+            ],
+            "description": "This is ${{parameters.component_id}}",
+            "repoUrl": "${{parameters.repoUrl}}"
+          }
+        },
+        {
+          "id": "register",
+          "name": "Register",
+          "action": "catalog:register",
+          "input": {
+            "repoContentsUrl": "${{steps.publish.output.repoContentsUrl}}",
+            "catalogInfoPath": "/catalog-info.yaml"
+          }
+        }
+      ],
+      "output": {
+        "remoteUrl": "${{steps.publish.output.remoteUrl}}",
+        "entityRef": "${{steps.register.output.entityRef}}"
+      }
+    }
+  }
