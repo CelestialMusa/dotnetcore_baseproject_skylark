@@ -4,9 +4,6 @@ metadata:
   name: Skylark
   title: DotNet Core 3.1 MVC application
   description: Scaffolder template for the C# MVC application
-  tags:
-    - C#
-    - MVC
 spec:
   owner: web@example.com
   type: website
