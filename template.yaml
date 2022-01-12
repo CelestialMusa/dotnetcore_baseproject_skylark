@@ -42,7 +42,6 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./skeleton
         values:
           component_id: ${{parameters.component_id}}
           owner: ${{parameters.owner}}
