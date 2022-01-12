@@ -5,7 +5,6 @@ metadata:
   title: DotNet Core 3.1 MVC application
   description: Scaffolder template for the C# MVC application
   tags:
-    - Dotnet Core
     - C#
     - MVC
 spec:
