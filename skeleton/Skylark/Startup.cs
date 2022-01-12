@@ -158,14 +158,14 @@ namespace Skylark
             //Here you could create a super user who will maintain the web app
             User poweruser = new User
             {
-                UserName = "ABSA391",
-                Logon = "ABSA391",
-                Email = "Shahil.Ambaram@absa.africa",
+                UserName = "ABZM583",
+                Logon = "ABZM583",
+                Email = "Zakes.Manyoni@absa.africa",
                 EmailConfirmed = true
             };
 
             string userPWD = "$Kylark#202";
-            User _user = await UserManager.FindByNameAsync("ABSA391");
+            User _user = await UserManager.FindByNameAsync("ABZM583");
 
             if (_user == null)
             {
