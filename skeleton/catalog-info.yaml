@@ -4,7 +4,7 @@ metadata:
   name: skylark-base-project
   description: ${{values.description | dump}}
   annotations:
-    github.com/project-slug: absa-group/dotnetcore_baseproject_skylark/
+    github.com/project-slug: CelestialMusa/dotnetcore_baseproject_skylark/
     sentry.io/project-slug: dir:.
     backstage.io/techdocs-ref: dir:.
 spec:
